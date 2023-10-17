@@ -32,6 +32,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     'react/jsx-no-bind': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
     'react-native/no-color-literals': 'off',
     'react-native/sort-styles': 'off',
     'import/prefer-default-export': 'off',
