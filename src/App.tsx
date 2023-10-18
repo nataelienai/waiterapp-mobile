@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
 
 import { Main } from './Main';
 
@@ -15,5 +16,11 @@ export function App() {
     return null;
   }
 
-  return <Main />;
+  return (
+    <>
+      {/* eslint-disable-next-line react/style-prop-object */}
+      <StatusBar style="auto" />
+      <Main />
+    </>
+  );
 }
