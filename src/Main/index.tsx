@@ -1,3 +1,4 @@
+import { Categories } from '../components/Categories';
 import { Header } from '../components/Header';
 
 import {
@@ -13,9 +14,14 @@ export function Main() {
     <>
       <Container>
         <Header />
-        <CategoriesContainer />
+
+        <CategoriesContainer>
+          <Categories />
+        </CategoriesContainer>
+
         <MenuContainer />
       </Container>
+
       <Footer>
         <FooterContainer />
       </Footer>
