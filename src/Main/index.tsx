@@ -8,6 +8,7 @@ import {
   Container,
   Footer,
   FooterContainer,
+  HeaderContainer,
   MenuContainer,
 } from './styles';
 
@@ -15,7 +16,9 @@ export function Main() {
   return (
     <>
       <Container>
-        <Header />
+        <HeaderContainer>
+          <Header />
+        </HeaderContainer>
 
         <CategoriesContainer>
           <Categories />
