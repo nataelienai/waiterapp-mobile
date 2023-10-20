@@ -18,9 +18,10 @@ export const MenuContainer = styled.View`
   flex: 1;
 `;
 
-export const FooterContainer = styled.SafeAreaView``;
-
-export const Footer = styled.View`
+export const FooterContainer = styled.View`
   min-height: 110px;
   background: #fff;
+  padding: 16px 24px;
 `;
+
+export const Footer = styled.SafeAreaView``;
