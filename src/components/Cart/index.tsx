@@ -35,6 +35,7 @@ export function Cart({
   onSubtract,
   onConfirmOrder,
 }: ICartProps) {
+  const [isLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const totalPrice = cartItems.reduce(
@@ -115,7 +116,11 @@ export function Cart({
           )}
         </TotalPrice>
 
-        <Button onPress={handleConfirmOrder} disabled={cartItems.length === 0}>
+        <Button
+          onPress={handleConfirmOrder}
+          disabled={cartItems.length === 0}
+          loading={isLoading}
+        >
           Confirmar pedido
         </Button>
       </Summary>

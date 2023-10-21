@@ -12,6 +12,12 @@ export const HeaderContainer = styled.SafeAreaView`
   margin-top: ${isAndroid ? `${StatusBar.currentHeight}px` : '0'};
 `;
 
+export const CenteredContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const CategoriesContainer = styled.View`
   height: 73px;
   margin-top: 34px;
