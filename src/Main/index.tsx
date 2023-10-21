@@ -28,7 +28,7 @@ export function Main() {
     setSelectedTable(table);
   }
 
-  function handleCancelOrder() {
+  function handleResetOrder() {
     setSelectedTable('');
     setCartItems([]);
   }
@@ -79,7 +79,7 @@ export function Main() {
         <HeaderContainer>
           <Header
             selectedTable={selectedTable}
-            onCancelOrder={handleCancelOrder}
+            onCancelOrder={handleResetOrder}
           />
         </HeaderContainer>
 
@@ -105,6 +105,7 @@ export function Main() {
               cartItems={cartItems}
               onAdd={handleAddToCart}
               onSubtract={handleSubtractFromCart}
+              onConfirmOrder={handleResetOrder}
             />
           )}
         </Footer>
