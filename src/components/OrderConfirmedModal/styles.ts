@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const OkButton = styled.TouchableOpacity`
-  margin-top: 24;
+  margin-top: 24px;
   padding: 14px 24px;
   background: #fff;
   border-radius: 48px;
