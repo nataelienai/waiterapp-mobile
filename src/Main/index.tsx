@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-raw-text */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 
 import { Button } from '../components/Button';
@@ -10,9 +10,10 @@ import { Empty } from '../components/Icons/Empty';
 import { Menu } from '../components/Menu';
 import { TableModal } from '../components/TableModal';
 import { Text } from '../components/Text';
-import { products as mockProducts } from '../mocks/products';
 import { ICartItem } from '../types/ICartItem';
+import { ICategory } from '../types/ICategory';
 import { IProduct } from '../types/IProduct';
+import { api } from '../utils/api';
 
 import {
   CategoriesContainer,
@@ -28,10 +29,37 @@ export function Main() {
   const [isTableModalVisible, setIsTableModalVisible] = useState(false);
   const [selectedTable, setSelectedTable] = useState('');
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
-  const [isLoading] = useState(false);
-  const [products] = useState<IProduct[]>(mockProducts);
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [categories, setCategories] = useState<ICategory[]>([]);
+  const [isLoadingProducts, setIsLoadingProducts] = useState(false);
 
   const hasProducts = products.length > 0;
+
+  useEffect(() => {
+    Promise.all([api.get('/products'), api.get('/categories')])
+      .then(([productResponse, categoryResponse]) => {
+        setProducts(productResponse.data as IProduct[]);
+        setCategories(categoryResponse.data as ICategory[]);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  async function handleSelectCategory(categoryId: string) {
+    const route = categoryId
+      ? `/categories/${categoryId}/products`
+      : '/products';
+
+    setIsLoadingProducts(true);
+
+    const response = await api.get(route);
+
+    setIsLoadingProducts(false);
+    setProducts(response.data as IProduct[]);
+  }
 
   function handleSaveTable(table: string) {
     setSelectedTable(table);
@@ -101,14 +129,26 @@ export function Main() {
         {!isLoading && (
           <>
             <CategoriesContainer>
-              <Categories />
+              <Categories
+                categories={categories}
+                // eslint-disable-next-line @typescript-eslint/no-misused-promises
+                onSelectCategory={handleSelectCategory}
+              />
             </CategoriesContainer>
 
-            {hasProducts ? (
+            {isLoadingProducts && (
+              <CenteredContainer>
+                <ActivityIndicator color="#D73035" size="large" />
+              </CenteredContainer>
+            )}
+
+            {!isLoadingProducts && hasProducts && (
               <MenuContainer>
                 <Menu onAddToCart={handleAddToCart} products={products} />
               </MenuContainer>
-            ) : (
+            )}
+
+            {!isLoadingProducts && !hasProducts && (
               <CenteredContainer>
                 <Empty />
 
@@ -130,7 +170,7 @@ export function Main() {
           {!selectedTable && (
             <Button
               onPress={() => setIsTableModalVisible(true)}
-              disabled={isLoading || !hasProducts}
+              disabled={isLoading}
             >
               Novo Pedido
             </Button>
@@ -139,6 +179,7 @@ export function Main() {
           {selectedTable && (
             <Cart
               cartItems={cartItems}
+              selectedTable={selectedTable}
               onAdd={handleAddToCart}
               onSubtract={handleSubtractFromCart}
               onConfirmOrder={handleResetOrder}

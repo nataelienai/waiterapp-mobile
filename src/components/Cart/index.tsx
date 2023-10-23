@@ -4,6 +4,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 
 import { ICartItem } from '../../types/ICartItem';
 import { IProduct } from '../../types/IProduct';
+import { api } from '../../utils/api';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { Button } from '../Button';
 import { MinusCircle } from '../Icons/MinusCircle';
@@ -24,6 +25,7 @@ import {
 
 interface ICartProps {
   cartItems: ICartItem[];
+  selectedTable: string;
   onAdd: (product: IProduct) => void;
   onSubtract: (product: IProduct) => void;
   onConfirmOrder: () => void;
@@ -31,11 +33,12 @@ interface ICartProps {
 
 export function Cart({
   cartItems,
+  selectedTable,
   onAdd,
   onSubtract,
   onConfirmOrder,
 }: ICartProps) {
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const totalPrice = cartItems.reduce(
@@ -43,7 +46,20 @@ export function Cart({
     0,
   );
 
-  function handleConfirmOrder() {
+  async function handleConfirmOrder() {
+    setIsLoading(true);
+
+    const payload = {
+      table: selectedTable,
+      products: cartItems.map((cartItem) => ({
+        product: cartItem.product._id,
+        quantity: cartItem.quantity,
+      })),
+    };
+
+    await api.post('/orders', payload);
+
+    setIsLoading(false);
     setIsModalVisible(true);
   }
 
@@ -117,6 +133,7 @@ export function Cart({
         </TotalPrice>
 
         <Button
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onPress={handleConfirmOrder}
           disabled={cartItems.length === 0}
           loading={isLoading}
