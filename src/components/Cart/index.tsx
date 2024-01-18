@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 
+import { env } from '../../env';
 import { ICartItem } from '../../types/ICartItem';
 import { IProduct } from '../../types/IProduct';
 import { api } from '../../utils/api';
@@ -84,7 +85,7 @@ export function Cart({
               <Product>
                 <Image
                   source={{
-                    uri: `http:/192.168.0.5:3001/uploads/${cartItem.product.imagePath}`,
+                    uri: `${env.baseUrl}/uploads/${cartItem.product.imagePath}`,
                   }}
                 />
 

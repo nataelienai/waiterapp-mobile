@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-raw-text */
 import { FlatList, Modal } from 'react-native';
 
+import { env } from '../../env';
 import { IProduct } from '../../types/IProduct';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { Button } from '../Button';
@@ -48,9 +49,7 @@ export function ProductModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <Image
-        source={{ uri: `http://192.168.0.5:3001/uploads/${product.imagePath}` }}
-      >
+      <Image source={{ uri: `${env.baseUrl}/uploads/${product.imagePath}` }}>
         <CloseButton onPress={onClose}>
           <Close />
         </CloseButton>
