@@ -1,13 +1,13 @@
 # WaiterApp Mobile
 
 <p align="center">
-  <img src="./images/mobile-app.png" src="Página inicial da WaiterApp" height="400" />
+  <img src="./images/mobile-app.png" src="Página inicial da WaiterApp" height="500" />
 </p>
 
-WaiterApp, o App do Garçom, supre a necessidade de comandas físicas em restaurantes e bares. O aplicativo permite que o garçom realize pedidos e os envie diretamente para a cozinha, onde haverá um painel para acompanhar e atualizar os pedidos.
+WaiterApp, o App do Garçom, descarta a necessidade de comandas físicas em restaurantes e bares. O aplicativo permite que o garçom realize pedidos e os envie diretamente para a cozinha, onde haverá um painel para acompanhar e atualizar os pedidos.
 
 O aplicativo traz consigo, pelo menos, 3 vantagens:
-1. **Organização dos pedidos**: como o aplicativo supre a necessidade de papel, preocupações com disponibilidade de espaço e estoque de comandas não existem. Além disso, o aplicativo já organiza os pedidos em ordem de chegada.
+1. **Organização dos pedidos**: como o aplicativo descarta a necessidade de papel, preocupações com disponibilidade de espaço e estoque de comandas não existem. Além disso, o aplicativo já organiza os pedidos em ordem de chegada.
 2. **Agilidade**: sem a necessidade de anotar o pedido à mão e ir até a cozinha, o tempo que o garçom gasta realizando um pedido é menor.
 3. **Redução de erros**: evita erros ao anotar os pedidos, perda de comanda, ordenação errada dos pedidos, entre outros.
 
