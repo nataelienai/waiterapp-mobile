@@ -19,7 +19,7 @@ Este projeto foi desenvolvido durante o curso [JStack](https://jstack.com.br/).
 
 - Linguagem: TypeScript
 - Gerenciador de pacotes: Yarn
-- Bibliotecas: React Native, Expo, Styled Components, Axios, Intl.js
+- Bibliotecas: React Native, Expo, Styled Components, Axios e Intl.js
 - Ferramentas: ESLint, Prettier, EditorConfig, commitlint, lint-staged, husky, Git e Figma
 
 ## Dependências
