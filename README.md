@@ -1,7 +1,7 @@
 # WaiterApp Mobile
 
 <p align="center">
-  <img src="./images/mobile-app.png" src="Página inicial da WaiterApp" height="500" />
+  <img src="./images/mobile-app.png" src="Página inicial da WaiterApp" height="400" />
 </p>
 
 WaiterApp, o App do Garçom, descarta a necessidade de comandas físicas em restaurantes e bares. O aplicativo permite que o garçom realize pedidos e os envie diretamente para a cozinha, onde haverá um painel para acompanhar e atualizar os pedidos.
