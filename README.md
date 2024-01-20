@@ -1,7 +1,7 @@
 # WaiterApp Mobile
 
 <p align="center">
-  <img src="./images/mobile-app.png" src="Página inicial da WaiterApp" height="400" />
+  <img src="./images/mobile-app.png" alt="Aplicativo mobile do WaiterApp" height="400" />
 </p>
 
 WaiterApp, o App do Garçom, descarta a necessidade de comandas físicas em restaurantes e bares. O aplicativo permite que o garçom realize pedidos e os envie diretamente para a cozinha, onde haverá um painel para acompanhar e atualizar os pedidos.
@@ -69,5 +69,5 @@ Isso é necessário para que o aplicativo consiga se comunicar com a API.
 7. Por fim, copie o endereço presente na mensagem `Metro waiting on <endereço>`, abra o aplicativo Expo Go no seu celular, insira o endereço nele e clique em `Connect`:
 
 <p align="center">
-  <img src="./images/expo.jpeg" src="Página inicial do Expo Go" height="400" />
+  <img src="./images/expo.jpeg" alt="Página inicial do aplicativo Expo Go" height="400" />
 </p>
